@@ -1,0 +1,1 @@
+Simple Notes é uma extensão para navegador que propõe uma maneira simples e prática de criar anotações.

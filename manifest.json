@@ -1,0 +1,19 @@
+{
+  "name": "Simple Notes",
+  "version": "0.1",
+  "description": "Extensão Simple Notes",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": {
+      "32": "/images/32.png",
+      "48": "/images/48.png",
+      "128": "/images/128.png"
+    }
+  },
+  "icons": {
+    "32": "/images/32.png",
+    "48": "/images/48.png",
+    "128": "/images/128.png"
+  }
+}
