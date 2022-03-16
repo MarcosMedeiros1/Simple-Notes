@@ -11,12 +11,12 @@ Aqui vai um passo a passo para você ativar a extensão no seu navegador
 1. Acesse **chrome://extensions/**
 2. Habilite o **Modo do desenvolvedor**.
 
-   ![This is a alt text.](/images/ex1.png "This is a sample image.")
+   ![Ativando o Modo do desenvolvedor](/images/ex1.png)
 
 3. Aparecerão as opções **Carregar sem Compactação**, Compactar Extensão e Atualizar. Selecione a primeira opção e encontre o diretório onde foi baixada a extensão.
 4. Feito isso a extensão será mostrada na tela e o ícone da extensão aparecerá no canto superior direito.
 
-   ![This is a alt text.](/images/ex2.png "This is a sample image.")
+   ![Extenção carregada](/images/ex2.png)
 
 _**No momento somente a versão para Chrome está disponível**_
 
