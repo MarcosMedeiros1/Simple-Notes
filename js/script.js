@@ -16,11 +16,18 @@ function toggleVisibility() {
 }
 
 function saveNote() {
+  const NOTE_CONTAINER = document.createElement("div");
   const NOTE_ITEM = document.createElement("textarea");
+
+  NOTE_CONTAINER.setAttribute("class", "note-item-container");
   NOTE_ITEM.setAttribute("class", "note-item");
   NOTE_ITEM.readOnly = true;
-  NOTE_ITEM.innerHTML = INPUT_AREA.value;
-  UL.prepend(NOTE_ITEM);
+  NOTE_ITEM.value = INPUT_AREA.value;
+
+  NOTE_CONTAINER.append(NOTE_ITEM);
+  UL.prepend(NOTE_CONTAINER);
+
+  notes = document.querySelectorAll(".note-item");
 }
 
 // Buttons actions
@@ -33,8 +40,9 @@ BTN_CANCEL.onclick = () => {
 };
 
 BTN_SAVE.onclick = () => {
-  INPUT_AREA.value === "" ? false : saveNote();
+  INPUT_AREA.value.trim() === "" ? false : saveNote();
   toggleVisibility();
+  INPUT_AREA.style.height = "auto";
 };
 
 // Resize texarea while typing
@@ -47,15 +55,14 @@ INPUT_AREA.addEventListener(
   false,
 );
 
-// Expand and contract notes size on click
+// Grow and shrink notes size on click
 function expandNote() {
-  notes = document.querySelectorAll(".note-item");
   return notes.forEach((element) => {
     element.onclick = () => {
-      if (element.offsetHeight <= 55) {
+      if (element.offsetHeight !== element.scrollHeight) {
         element.style.height = element.scrollHeight + "px";
       } else {
-        element.style.height = "40px";
+        element.style.height = "45px";
       }
     };
   });

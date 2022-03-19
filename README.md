@@ -29,3 +29,5 @@ _**No momento somente a versão para Chrome está disponível**_
 ⭕ Implementar opção de deletar notes
 
 ⭕ Encontrar a maneira mais eficiente para armazenar/salvar as notes localmente
+
+⭕ Implementar a função de lembrete/agendamento para receber uma notificação na data marcada
