@@ -11,6 +11,7 @@ const ELEMENTS = [BTN_NEW, BTN_SAVE, BTN_CANCEL, INPUT_AREA];
 function toggleVisibility() {
   ELEMENTS.forEach((item) => {
     item.classList.toggle("visible");
+    INPUT_AREA.focus();
   });
   INPUT_AREA.value = "";
 }
@@ -22,7 +23,7 @@ function saveNote() {
   NOTE_CONTAINER.setAttribute("class", "note-item-container");
   NOTE_ITEM.setAttribute("class", "note-item");
   NOTE_ITEM.readOnly = true;
-  NOTE_ITEM.value = INPUT_AREA.value;
+  NOTE_ITEM.innerHTML = INPUT_AREA.value.trim();
 
   NOTE_CONTAINER.append(NOTE_ITEM);
   UL.prepend(NOTE_CONTAINER);
