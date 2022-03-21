@@ -24,9 +24,9 @@ _**No momento somente a versão para Chrome está disponível**_
 
 ✅ ~~Clicar para expandir/contrair uma note de acordo com o tamanho do texto~~
 
-⭕ Implementar opção de editar notes
+✅ ~~Implementar opção de deletar notes~~
 
-⭕ Implementar opção de deletar notes
+⭕ Implementar opção de editar notes
 
 ⭕ Encontrar a maneira mais eficiente para armazenar/salvar as notes localmente
 

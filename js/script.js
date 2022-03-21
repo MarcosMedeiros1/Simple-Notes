@@ -5,31 +5,48 @@ const BTN_CANCEL = document.querySelector("#btn_cancel");
 const INPUT_AREA = document.querySelector("#input_area");
 
 let notes = document.querySelectorAll(".note-item");
+let btnDelete = document.querySelectorAll(".btn-delete");
 
 const ELEMENTS = [BTN_NEW, BTN_SAVE, BTN_CANCEL, INPUT_AREA];
 
-function toggleVisibility() {
+const toggleVisibility = () => {
   ELEMENTS.forEach((item) => {
     item.classList.toggle("visible");
     INPUT_AREA.focus();
   });
   INPUT_AREA.value = "";
-}
+};
 
-function saveNote() {
+const saveNote = () => {
   const NOTE_CONTAINER = document.createElement("div");
   const NOTE_ITEM = document.createElement("textarea");
+  const BTN_WRAPPER = document.createElement("div");
+  const BTN_DELETE = document.createElement("button");
+  const BTN_EDIT = document.createElement("button");
 
-  NOTE_CONTAINER.setAttribute("class", "note-item-container");
+  NOTE_CONTAINER.setAttribute("class", "note-container");
   NOTE_ITEM.setAttribute("class", "note-item");
+
+  BTN_WRAPPER.setAttribute("class", "edit-delete-wrapper");
+  BTN_DELETE.setAttribute("class", "btn-delete material-icons-round");
+  BTN_DELETE.setAttribute("title", "Double click to delete note");
+  BTN_DELETE.innerHTML = "delete";
+
+  BTN_EDIT.setAttribute("class", "btn-edit material-icons-round");
+  BTN_EDIT.setAttribute("title", "Click to edit note");
+  BTN_EDIT.innerHTML = "edit";
+
+  BTN_WRAPPER.append(BTN_DELETE, BTN_EDIT);
+
   NOTE_ITEM.readOnly = true;
   NOTE_ITEM.innerHTML = INPUT_AREA.value.trim();
-
-  NOTE_CONTAINER.append(NOTE_ITEM);
+  NOTE_CONTAINER.append(NOTE_ITEM, BTN_WRAPPER);
   UL.prepend(NOTE_CONTAINER);
 
   notes = document.querySelectorAll(".note-item");
-}
+  btnDelete = document.querySelectorAll(".btn-delete");
+  invokeFuncs();
+};
 
 // Buttons actions
 BTN_NEW.onclick = () => {
@@ -57,7 +74,7 @@ INPUT_AREA.addEventListener(
 );
 
 // Grow and shrink notes size on click
-function expandNote() {
+const expandNote = () => {
   return notes.forEach((element) => {
     element.onclick = () => {
       if (element.offsetHeight !== element.scrollHeight) {
@@ -67,14 +84,19 @@ function expandNote() {
       }
     };
   });
-}
-
-function getEventTarget(e) {
-  e = e || window.event;
-  return e.target || e.srcElement;
-}
-
-UL.onclick = function (event) {
-  let target = getEventTarget(event);
-  expandNote(target);
 };
+
+const deleteNote = () => {
+  return btnDelete.forEach((element) => {
+    element.ondblclick = () => {
+      element.parentNode.parentNode.remove();
+    };
+  });
+};
+
+// Invoke
+const invokeFuncs = () => {
+  expandNote();
+  deleteNote();
+};
+invokeFuncs();

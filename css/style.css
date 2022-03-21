@@ -93,7 +93,7 @@ textarea {
   width: 320px;
 }
 
-.note-item-container {
+.note-container {
   width: 300px;
   display: flex;
   align-items: center;
@@ -125,6 +125,17 @@ textarea {
   z-index: 10;
   color: #c8d6e5;
   cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-delete:hover {
+  color: #e74c3c;
+  transform: scale(1.2);
+}
+
+.btn-edit:hover {
+  color: #1abc9c;
+  transform: scale(1.2);
 }
 
 .edit-delete-wrapper {
