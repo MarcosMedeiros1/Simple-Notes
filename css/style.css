@@ -142,6 +142,7 @@ textarea {
   display: flex;
   height: 24px;
   gap: 4px;
+  margin-left: 5px;
 }
 
 /* Icons */
