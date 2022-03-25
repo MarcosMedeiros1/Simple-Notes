@@ -26,7 +26,7 @@ _**No momento somente a versão para Chrome está disponível**_
 
 ✅ ~~Implementar opção de deletar notes~~
 
-⭕ Implementar opção de editar notes
+✅ ~~Implementar opção de editar notes~~
 
 ⭕ Encontrar a maneira mais eficiente para armazenar/salvar as notes localmente
 
