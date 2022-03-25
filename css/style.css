@@ -1,5 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Fredoka&display=swap");
 
+:root {
+  --main-color: #2f3640;
+  --second-color: #353b48;
+  --green: #1abc9c;
+  --red: #e74c3c;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -10,12 +17,11 @@
 body {
   width: 320px;
   margin: 0 auto;
-  background-color: #2f3640;
+  background-color: var(--main-color);
 }
 
 main {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   align-items: center;
 }
 
@@ -40,7 +46,7 @@ textarea {
 }
 
 #input_area {
-  background-color: #353b48;
+  background-color: var(--second-color);
   margin-bottom: 10px;
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
@@ -54,7 +60,7 @@ textarea {
 /* Buttons */
 .btns {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
 }
 
 #btn_new,
@@ -71,39 +77,41 @@ textarea {
 
 #btn_new,
 #btn_save {
-  background-color: #1abc9c;
+  background-color: var(--green);
 }
 
 #btn_cancel {
-  background-color: #e74c3c;
+  background-color: var(--red);
 }
 
 #btn_new:hover,
 #btn_save:hover,
 #btn_cancel:hover {
-  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.3);
-  transform: translate(-2px, -2px);
+  transform: translateY(-1px);
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
 }
 
 /* Notes */
 .notes {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  justify-content: center;
   width: 320px;
 }
 
 .note-container {
   width: 300px;
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-areas:
+    "note"
+    "btns";
 }
 
 .note-item {
-  background-color: #353b48;
+  grid-area: note;
+  background-color: var(--second-color);
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   color: #c8d6e5;
-  margin-bottom: 10px;
+  margin-top: 10px;
   padding: 5px 10px;
   width: 300px;
   height: 45px;
@@ -113,36 +121,47 @@ textarea {
 }
 
 .note-item:hover {
-  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.3);
-  transform: translate(-1px, -1px);
+  transform: translateY(-1px);
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
 }
 
-/* Edit and delete buttons */
+/* Edit, delete and resize buttons */
 .btn-delete,
-.btn-edit {
-  background: none;
+.btn-edit,
+.btn-resize {
+  background-color: var(--second-color);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   border: none;
-  z-index: 10;
+  border-radius: 5px;
   color: #c8d6e5;
   cursor: pointer;
   transition: 0.2s;
 }
 
 .btn-delete:hover {
-  color: #e74c3c;
-  transform: scale(1.2);
+  color: var(--red);
+  transform: translateY(-1px);
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
 }
 
 .btn-edit:hover {
-  color: #1abc9c;
-  transform: scale(1.2);
+  color: var(--green);
+  transform: translateY(-1px);
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
 }
 
-.edit-delete-wrapper {
-  display: flex;
-  height: 24px;
-  gap: 4px;
-  margin-left: 5px;
+.btn-resize:hover {
+  transform: translateY(-1px);
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+}
+
+.btns-wrapper {
+  grid-area: btns;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 150px;
+  gap: 10px;
+  margin-bottom: 5px;
 }
 
 /* Icons */
