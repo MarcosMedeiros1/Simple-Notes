@@ -8,10 +8,10 @@ const ELEMENTS = [BTN_NEW, BTN_SAVE, BTN_CANCEL, INPUT_AREA];
 
 const elementsList = () => {
   let btnResize = document.querySelectorAll(".btn-resize");
-  let btnDelete = document.querySelectorAll(".btn-delete");
   let btnEdit = document.querySelectorAll(".btn-edit");
+  let btnDelete = document.querySelectorAll(".btn-delete");
 
-  return [btnResize, btnDelete, btnEdit];
+  return [btnResize, btnEdit, btnDelete];
 };
 
 // Toggles the visibility of elements
@@ -119,11 +119,12 @@ const deleteNote = (btn_delete) => {
   });
 };
 
-// Not ready yet
+// Edit note
 const editNote = (btn_edit) => {
   btn_edit.forEach((element) => {
     let note = element.parentNode.previousElementSibling;
     element.onclick = () => {
+      element.previousElementSibling.click();
       element.innerHTML === "edit"
         ? ((element.innerHTML = "task_alt"),
           ((note.readOnly = false), note.focus()))
@@ -135,7 +136,7 @@ const editNote = (btn_edit) => {
 // Initiate action functions
 const initFunctions = () => {
   resizeNote(elementsList().at(0));
-  deleteNote(elementsList().at(1));
-  editNote(elementsList().at(2));
+  editNote(elementsList().at(1));
+  deleteNote(elementsList().at(2));
 };
 initFunctions();
